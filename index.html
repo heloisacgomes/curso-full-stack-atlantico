@@ -5,8 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./img/icon-avanti.png" type="image/png">
     <title>Início | Avanti</title>
+    <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
+    <button id="btn-menu" class="menu-button">☰</button>
+    <div id="menu-overlay" class="menu-overlay">
+    </div>
+    <nav id="nav" class="nav">
+    <button id="close-menu" class="close-button"></button>
+    <a href="#capacitacoes">CAPACITAÇÕES</a>
+    <a href="#solucoes">SOLUÇÕES EDUCACIONAIS</a>
+</nav>
+<nav class="menu-lateral">
+    <button class="btn-close" id="btnClose">✕</button>
+    <ul class="menu-list">
+        <li class="menu-item has-sub">
+            <button class="submenu-btn">
+                CAPACITAÇÕES
+            </button>
+            <ul class="submenu">
+                <li><a href="#">Cientista de dados</a></li>
+                <li><a href="#">Desenvolvedor Full Stack</a></li>
+                <li><a href="#">Design de Futuros</a></li>
+                <li><a href="#">Project Management</a></li>
+                <li><a href="#">Cyber Shield</a></li>
+                <li><a href="#">NEXT-GEN AI</a></li>
+            </ul>
+        </li>
+
+        <li class="menu-item has-sub">
+            <button class="submenu-btn">
+                SOLUÇÕES EDUCACIONAIS
+            </button>
+            <ul class="submenu">
+                <li><a href="#">Bootcamp</a></li>
+                <li><a href="#">Capacita Brasil</a></li>
+            </ul>
+        </li>
+     <div class="menu-social">
+        <a href="#"><i data-feather="instagram"></i></a>
+        <a href="#"><i data-feather="linkedin"></i></a>
+        <a href="#"><i data-feather="youtube"></i></a>
+        <a href="#"><i data-feather="music"></i></a>
+    </div>
+
+    </ul>
+</nav>
     <header>
         <div>
             <img src="./img/header/Sem-título-2.avif" alt="logo-atlantico-avanti" class="logo-atlantico-avanti">
@@ -38,7 +82,7 @@
     <h2>Sobre nós</h2>
     <p>Somos uma escola de tecnologia, inovação e liderança que conecta educação de excelência com o ecossistema de ciência e tecnologia, oferecendo soluções educacionais integradas para capacitar pessoas e empresas a resolver problemas complexos e liderar a transformação no mercado.</p>
     <p>Destaque-se no mercado! Oferecemos as formações ideais para desenvolver as habilidades mais procuradas pelas grandes empresas!</p>
-     <ul>
+    <ul>
         <li>Com muita mão na massa, nossa metodologia de ensino garante que o aluno tenha um aprendizado 360°.</li>
         <li>Faça parte de uma comunidade de profissionais de destaque e com muita troca de experiência.</li>
         <li>Vá além do conhecimento técnico com nossos módulos de soft skills, torne-se um profissional completo.</li>
@@ -159,5 +203,9 @@
         </div>
     </div>
 </footer>
+<script>
+    feather.replace();
+</script>
+<script src="script.js"></script>
 </body>
 </html>
