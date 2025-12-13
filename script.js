@@ -1,41 +1,62 @@
+// Menu lateral
 const btnMenu = document.getElementById("btn-menu");
-const nav = document.getElementById("nav");
+const menuLateral = document.querySelector(".menu-lateral");
 const overlay = document.getElementById("menu-overlay");
-const closeBtn = document.getElementById("close-menu");
+const btnClose = document.getElementById("btnClose");
 
 function openMenu() {
-    nav.classList.add("show");
-    overlay.classList.add("show");
+    menuLateral.classList.add("active");
+    overlay.classList.add("active");
 }
 
 function closeMenu() {
-    nav.classList.remove("show");
-    overlay.classList.remove("show");
+    menuLateral.classList.remove("active");
+    overlay.classList.remove("active");
 }
+
+btnMenu.addEventListener("click", openMenu);
+btnClose.addEventListener("click", closeMenu);
+overlay.addEventListener("click", closeMenu);
+
+// Submenus
 const submenuBtns = document.querySelectorAll(".submenu-btn");
 
 submenuBtns.forEach(btn => {
     btn.addEventListener("click", () => {
-        const submenu = btn.nextElementSibling;
-        submenu.classList.toggle("open");
+        const menuItem = btn.parentElement;
+        menuItem.classList.toggle("active");
     });
 });
 
-btnMenu.addEventListener("click", openMenu);
-closeBtn.addEventListener("click", closeMenu);
-overlay.addEventListener("click", closeMenu);
+// Header sticky com mudança de cor
+const nav = document.getElementById("nav");
 
-    document.querySelectorAll('a[hrefˆ="#"]').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 100) {
+        nav.classList.add("scrolled");
+    } else {
+        nav.classList.remove("scrolled");
+    }
+});
 
-            const el= document.querySelector(link.getAttribute('href'));
-            if(el) {
-                window.scrollTo({
-                    top: el.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            }
-            nav.classList.remove('open');
-        });
+// Scroll suave para links âncora
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const href = link.getAttribute('href');
+        if (href === '#') return;
+        
+        const el = document.querySelector(href);
+        if(el) {
+            const offsetTop = el.offsetTop - 80;
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Fecha o menu lateral se estiver aberto
+        closeMenu();
     });
+});
